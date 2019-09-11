@@ -20,7 +20,7 @@ test_qso = quasar_test(2:end, :);
 
 
 
-data=[lambdas train_qso(1,:)'];
+data=[lambdas test_qso(1,:)'];
 
 # Construct the design matrix with the original data
 data_X=[ones(rows(data),1),data(:,1)];
@@ -61,29 +61,53 @@ iby = -by/my;
 #Local regression calc
 tau = 5;
 
-theta = [];
+function theta = LocalRegression(data_X,tau,x_normalized,y_normalized)
+  theta = [];
+  for (i=[1:rows(data_X)])
+    w = exp(-((data_X(i,2)-data_X(:,2)).^2)./(2*tau*tau));      %Calculates the weight of all the points
+    w_diag = diag(w);
+    theta_i = thetas(x_normalized, w_diag, y_normalized)';
+    theta = [theta; theta_i];
+  endfor
+end
 
-for (i=[1:rows(data)])                                    %Obtains the regression for each point
-  w = exp(-((data_X(i,2)-data_X(:,2)).^2)./(2*tau*tau));      %Calculates the weight of all the points
-  w_diag = diag(w);
-  theta_i = thetas(x_normalized, w_diag, y_normalized);
-  theta = [theta theta_i];
-endfor;
+lambda=1151:1600;
+lambdaN = mx*lambda + bx;
+lambdaN = [ones(length(lambdaN),1) lambdaN']; 
+theta = LocalRegression(data_X,tau,x_normalized,y_normalized);
+YN = lambdaN.*theta;
+Y = imy*YN+iby;
+
 # Local regression plot
 figure(1);
 hold off;                                                 %Necessary to adjust the graph
 plot(data_X(:,2),data_Y,"*b");                                    %Plots the raw points
 hold on;                                                %Necessary to show all the elements
 
-areas=linspace(min(data_X(:,2)),max(data_X(:,2)),5);
+plot(lambda,Y(:,2),'r;tau=5;',"linewidth",1);
 
-ts = theta(rows(theta),:);
-u0=ts(1,1);
-u1=ts(1,2);
-printf("Theta = (%g,%g)\n",u0,u1);
+tau = 1;
+theta = LocalRegression(data_X,tau,x_normalized,y_normalized);
+YN = lambdaN.*theta;
+Y = imy*YN+iby;
+plot(lambda,Y(:,2),'y;tau=1;',"linewidth",1);
 
-prices=u1*imy*mx*areas + (imy*u1*bx + imy*u0+iby);
+tau = 10;
+theta = LocalRegression(data_X,tau,x_normalized,y_normalized);
+YN = lambdaN.*theta;
+Y = imy*YN+iby;
+plot(lambda,Y(:,2),'c;tau=10;',"linewidth",1);
 
+tau = 100;
+theta = LocalRegression(data_X,tau,x_normalized,y_normalized);
+YN = lambdaN.*theta;
+Y = imy*YN+iby;
+plot(lambda,Y(:,2),'m;tau=100;',"linewidth",1);
+
+tau = 1000;
+theta = LocalRegression(data_X,tau,x_normalized,y_normalized);
+YN = lambdaN.*theta;
+Y = imy*YN+iby;
+plot(lambda,Y(:,2),'g;tau=1000;',"linewidth",1);
 
 waitfor(gcf);                                             %Wait for the image to close to finish the execution
-#endwhile;
