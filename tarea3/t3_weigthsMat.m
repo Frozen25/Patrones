@@ -69,7 +69,7 @@ gW = zeros(rows(X),rows(X));
 for(i=[1:rows(X)])
   for(j=[1:rows(X)])
     Norm = norm(X(j,:)-X(i,:));
-    gW(j,j) = exp(-1.*Norm*Norm./(2*tau*tau));
+    gW(j,j) = exp(-1.*Norm*Norm./(2*tau*tau))
   endfor
   tc = thetas(X,gW,Y);
   ts = [ts tc];
