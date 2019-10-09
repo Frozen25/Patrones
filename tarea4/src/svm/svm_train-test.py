@@ -57,17 +57,18 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 ################ Classifier with good params ###########
 # Create a classifier: a support vector classifier
-param_kernel = input("Enter a kernel type (default=‘rbf’, ‘linear’, ‘poly’, ‘sigmoid’): ")
+param_kernel = input(
+    "Enter a kernel type (default=‘rbf’, ‘linear’, ‘poly’, ‘sigmoid’): ")
 if not param_kernel:
     param_kernel = 'rbf'
 print('Chosen:', param_kernel)
-    
+
 try:
     param_degree = int(input("Enter the degree parameter (default=3): "))
 except ValueError:
     param_degree = 3
 print('Chosen:', param_degree)
-    
+
 try:
     param_C = int(input("Enter the penalty parameter (default=5): "))
 except ValueError:
@@ -81,18 +82,20 @@ except ValueError:
 print('Chosen:', param_gamma)
 
 try:
-    param_tolerance = float(input("Enter the tolerance parameter (default=1e-3): "))
+    param_tolerance = float(
+        input("Enter the tolerance parameter (default=1e-3): "))
 except ValueError:
     param_tolerance = 1e-3
 print('Chosen:', param_tolerance)
-    
+
 try:
-    param_max_iter = int(input("Enter the max iteration parameter (default=-1): "))
+    param_max_iter = int(
+        input("Enter the max iteration parameter (default=-1): "))
 except ValueError:
     param_max_iter = -1
-print('Chosen:', param_max_iter)    
+print('Chosen:', param_max_iter)
 
-classifier = svm.SVC(kernel=param_kernel,C=param_C, gamma=param_gamma, 
+classifier = svm.SVC(kernel=param_kernel, C=param_C, gamma=param_gamma,
                      degree=param_degree, tol=param_tolerance, max_iter=param_max_iter)
 
 # We learn the digits on train part
@@ -130,5 +133,5 @@ cm = metrics.confusion_matrix(expected, predicted)
 print("Confusion matrix:\n%s" % cm)
 
 plot_confusion_matrix(cm)
-
+ 
 print("Accuracy={}".format(metrics.accuracy_score(expected, predicted)))
