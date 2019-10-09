@@ -36,7 +36,7 @@ Project contains the Pipfile with all necessary libraries
 - matplotlib
 - scikit-learn
 
-```
+```(bash)
 git clone https://github.com/ksopyla/svm_mnist_digit_classification.git
 cd svm_mnist_digit_classification
 ```
@@ -94,7 +94,7 @@ Grid search is very time consuming process, so you can use my best parameters
 - gamma = 0.05
 - accuracy = 0.9852
 
-```
+```(None)
 Confusion matrix:
 [[1014    0    2    0    0    2    2    0    1    3]
  [   0 1177    2    1    1    0    1    0    2    1]
