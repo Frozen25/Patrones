@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 #print( tf.__version__) #get version
+import PIL
+from PIL import Image
+from keras.utils import np_utils
 
 
 train = input("New model? (0-1): ")
@@ -44,26 +47,39 @@ print(np.argmax(prediction))
 plt.imshow(x_test[0],cmap=plt.cm.binary)
 plt.show()
 '''
+cont = True
+while (cont):
+  '''
+  img = Image.open('number.png').convert("L")
+  img = np.resize(img, (28,28,1))
+  im2arr = np.array(img)
+  im2arr = im2arr.reshape(1,28,28,1)
+  imgA = im2arr
+  '''
+  img = cv2.imread('number.png')
+  img = cv2.resize(img,(28,28))
+  img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+  img = np.invert(img)
 
-img = cv2.imread('number.png')
-img = cv2.resize(img,(28,28))
-img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-img = np.invert(img)
+  img = img/255
+  imgA = img.astype('float64')
 
-img = img/255
-img = img.astype('float64')
+  
+  #plt.imshow(img,cmap=plt.cm.binary)
+  #plt.show()
 
-#plt.imshow(img,cmap=plt.cm.binary)
-#plt.show()
+  imgN = tf.keras.utils.normalize([imgA], axis=1)
+  #imgN= np.expand_dims(imgN,axis=0)
+  #print(imgN.shape)
 
-img = tf.keras.utils.normalize([img], axis=1)
-#img= np.expand_dims(img,axis=0)
-print(img.shape)
+  pr = new_model.predict([imgN])
+  print(np.argmax(pr[0]))
 
-pr = new_model.predict([img])
-print(np.argmax(pr[0]))
+  nums = [0,1,2,3,4,5,6,7,8,9]
+  print (nums)
+  l = [int(x * 100) for x in pr[0]]
+  print(l)
 
-nums = [0,1,2,3,4,5,6,7,8,9]
-print (nums)
-l = [int(x * 100) for x in pr[0]]
-print(l)
+  inputContinue = input("Scan again? (0-1): ")
+  if(inputContinue!='1'):
+    cont = False
