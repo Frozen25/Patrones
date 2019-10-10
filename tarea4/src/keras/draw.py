@@ -22,10 +22,11 @@ def activate_paint(e):
 
 def paint(e):
 	global lastx, lasty
+	thickness = 20
 	x, y = e.x, e.y
-	cv.create_oval((lastx, lasty, x, y), width=15) 	
+	cv.create_oval((lastx, lasty, x, y), width=thickness) 	
 	#  --- PIL
-	draw.line((lastx, lasty, x, y), fill='black', width=15)
+	draw.line((lastx, lasty, x, y), fill='black', width=thickness)
 	lastx, lasty = x, y
 
 root = Tk()
