@@ -21,20 +21,22 @@ else:
   x_test = tf.keras.utils.normalize(x_test, axis=1)
   model = tf.keras.models.Sequential()
   model.add(tf.keras.layers.Flatten())    #flattens the data at the input layer
-  model.add(tf.keras.layers.Dense(30, activation=tf.nn.softmax))  #first layer 128 neurons
-  model.add(tf.keras.layers.Dense(30, activation=tf.nn.relu))  #second layer 128 neurons
+  model.add(tf.keras.layers.Dense(100, activation=tf.nn.softmax))  #first layer 128 neurons
+  model.add(tf.keras.layers.Dense(100, activation=tf.nn.relu))  #second layer 128 neurons
   model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))  #output layer, softmax gives probability distribution
   model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
   model.fit(x_train, y_train, epochs=3) #training data for 3 epochs
   #saving model
   model.save('epic_num_reader.model')
   new_model = tf.keras.models.load_model('epic_num_reader.model')  #load model trained
+  #evaluating training with testing
+  val_loss, val_acc = new_model.evaluate(x_test, y_test)
+  print("loss and acc: ")
+  print(val_loss)
+  print(val_acc)
 
 '''
-#evaluating training with testing
-val_loss, val_acc = new_model.evaluate(x_test, y_test)
-print(val_loss)
-print(val_acc)
+
 
 
 prediction = new_model.predict([x_test[0:1]])  #argument must be a list inside a list, a range returns a list
@@ -43,7 +45,7 @@ plt.imshow(x_test[0],cmap=plt.cm.binary)
 plt.show()
 '''
 
-img = cv2.imread('seven2.png')
+img = cv2.imread('number.png')
 img = cv2.resize(img,(28,28))
 img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 img = np.invert(img)
