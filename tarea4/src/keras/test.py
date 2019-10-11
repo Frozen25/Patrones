@@ -1,85 +1,102 @@
+import tkinter
+from tkinter import *
+import PIL
+from PIL import Image, ImageDraw, ImageOps
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
-import cv2
-#print( tf.__version__) #get version
-import PIL
-from PIL import Image
 from keras.utils import np_utils
+from sklearn import metrics
 
 
-train = input("New model? (0-1): ")
-try:
-  ntrain = int(train)
-except:
-  ntrain = 0
+mnist = tf.keras.datasets.mnist #load mnist data
+(x_train, y_train),(x_test, y_test) = mnist.load_data()  #default trainin and testing sets
+#normalize data
+x_train = tf.keras.utils.normalize(x_train, axis=1)
+x_test = tf.keras.utils.normalize(x_test, axis=1)
 
-if(ntrain == 0):
-  new_model = tf.keras.models.load_model('epic_num_reader.model')  #load model if exists
-else:
-  mnist = tf.keras.datasets.mnist #load mnist data
-  (x_train, y_train),(x_test, y_test) = mnist.load_data()  #default trainin and testing sets
-  #normalize data
-  x_train = tf.keras.utils.normalize(x_train, axis=1)
-  x_test = tf.keras.utils.normalize(x_test, axis=1)
-  model = tf.keras.models.Sequential()
-  model.add(tf.keras.layers.Flatten())    #flattens the data at the input layer
-  #model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))  #first layer 128 neurons
-  model.add(tf.keras.layers.Dense(50, activation=tf.nn.relu))  #second layer 128 neurons
-  model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))  #output layer, softmax gives probability distribution
-  model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
-  model.fit(x_train, y_train, epochs=3) #training data for 3 epochs
-  #saving model
-  model.save('epic_num_reader.model')
-  new_model = tf.keras.models.load_model('epic_num_reader.model')  #load model trained
+new_model = tf.keras.models.load_model('resources/epic_num_reader.model')  #load model if exists
+
+def testdata():
   #evaluating training with testing
   val_loss, val_acc = new_model.evaluate(x_test, y_test)
-  print("loss and acc: ")
-  print(val_loss)
-  print(val_acc)
+  print("\n")
+  print("Loss: ", val_loss)
+  print("Acc: ", val_acc)
 
-'''
+  Y_pred = new_model.predict([x_test])
+  y_pred = np.argmax(Y_pred, axis=1)
+  cm = metrics.confusion_matrix(y_test, y_pred)
+  print("Confusion matrix:\n%s" % cm)
+
+testdata()
+print("\n")
 
 
+##############################
+size = 200
 
-prediction = new_model.predict([x_test[0:1]])  #argument must be a list inside a list, a range returns a list
-print(np.argmax(prediction))
-plt.imshow(x_test[0],cmap=plt.cm.binary)
-plt.show()
-'''
-cont = True
-while (cont):
-  '''
-  img = Image.open('number.png').convert("L")
-  img = np.resize(img, (28,28,1))
-  im2arr = np.array(img)
-  im2arr = im2arr.reshape(1,28,28,1)
-  imgA = im2arr
-  '''
-  img = cv2.imread('number.png')
-  img = cv2.resize(img,(28,28))
-  img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-  img = np.invert(img)
+def printprob(l):
+  print("printing probabilities: ")
+  length = len(l)
+  line = "\t"
+  for i in range(length):
+    line += "| " + str(i)
+  print(line)
+  line = "\t"
+  for num in l:
+    each = int(num*100)
+    line +=(f"|{each:02d}")
+  print(line+"\n")
 
-  img = img/255
-  imgA = img.astype('float64')
+def save():    
+  filename = 'resources/number.png'  
+  image2 = image1.resize((28, 28),2) #segundo parámetro es 2 para bilineal o 3 para bicubico
+  image2.save(filename)
+  ########################################
+  image = PIL.Image.open('resources/number.png')
+  imageGrey = image.convert('L')
+  imgInv = PIL.ImageOps.invert(imageGrey)
+  imgA = np.array(imgInv)
+  imgNorm = imgA / 255
+  #plt.imshow(imgNorm,cmap=plt.cm.binary)
+  #plt.show()
+  imgNorm = tf.keras.utils.normalize([imgNorm], axis=1)  
+  pr = new_model.predict([imgNorm])
+  print("predicted: ",np.argmax(pr[0]))
+  printprob(pr[0])
 
   
-  #plt.imshow(img,cmap=plt.cm.binary)
-  #plt.show()
+def reset():
+  global size
+  cv.delete("all")
+  draw.rectangle((0, 0, size, size), fill=(255))
 
-  imgN = tf.keras.utils.normalize([imgA], axis=1)
-  #imgN= np.expand_dims(imgN,axis=0)
-  #print(imgN.shape)
+def activate_paint(e):
+  global lastx, lasty
+  cv.bind('<B1-Motion>', paint)
+  lastx, lasty = e.x, e.y
 
-  pr = new_model.predict([imgN])
-  print(np.argmax(pr[0]))
+def paint(e):
+  global lastx, lasty
+  thickness = 20
+  x, y = e.x, e.y
+  cv.create_oval((lastx, lasty, x, y), width=thickness)   
+  #  --- PIL
+  draw.line((lastx, lasty, x, y), fill='black', width=thickness)
+  lastx, lasty = x, y
 
-  nums = [0,1,2,3,4,5,6,7,8,9]
-  print (nums)
-  l = [int(x * 100) for x in pr[0]]
-  print(l)
+root = Tk()
+lastx, lasty = None, None
+cv = Canvas(root, width=size, height=size, bg='white')
+# --- PIL
+image1 = PIL.Image.new(mode='L', size=(size, size), color='white') # L = escala de grises
+draw = ImageDraw.Draw(image1)
+cv.bind('<1>', activate_paint)
+cv.pack(expand=YES, fill=BOTH)
 
-  inputContinue = input("Scan again? (0-1): ")
-  if(inputContinue!='1'):
-    cont = False
+btn_save = Button(text="Predict", command=save)
+btn_save.pack()
+btn_reset = Button(text="Clear", command=reset)
+btn_reset.pack()
+root.mainloop()
