@@ -154,12 +154,12 @@ def train_kernel(param_kernel, param_degree, param_C, param_gamma,
 
     # Prints info of the kernel trained
     print('Classifier info:\n',
-          '\t' + 'Kernal:' + param_kernel + '\n',
-          '\t' + 'Degree:' + param_degree + '\n',
-          '\t' + 'Cost:' + param_C + '\n',
-          '\t' + 'Gamma:' + param_gamma + '\n',
-          '\t' + 'Tolerance:' + param_tolerance + '\n',
-          '\t' + 'Max_Iter:' + param_max_iter + '\n')
+          '\t' + 'Kernal: ' + param_kernel + '\n',
+          '\t' + 'Degree: ' + str(param_degree) + '\n',
+          '\t' + 'Cost: ' + str(param_C) + '\n',
+          '\t' + 'Gamma: ' + str(param_gamma) + '\n',
+          '\t' + 'Tolerance: ' + str(param_tolerance) + '\n',
+          '\t' + 'Max_Iter: ' + str(param_max_iter) + '\n')
 
     # We learn the digits on train part
     start_time = dt.datetime.now()
