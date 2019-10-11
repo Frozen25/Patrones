@@ -171,7 +171,7 @@ def train_kernel(param_kernel, param_degree, param_C, param_gamma,
     print('Elapsed learning {}'.format(str(elapsed_time)))
 
     # save the model to disk
-    filename = 'svm'
+    filename = 'resource/svm'
     filename += '_' + param_kernel
     filename += '_' + str(param_degree)
     filename += '_' + str(param_C)
