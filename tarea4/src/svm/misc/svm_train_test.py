@@ -153,7 +153,7 @@ def train_kernel(param_kernel, param_degree, param_C, param_gamma,
                          degree=param_degree, tol=param_tolerance, max_iter=param_max_iter)
 
     # Prints info of the kernel trained
-    print('Classifier info:\n',
+    print('\nClassifier info:\n',
           '\t' + 'Kernal: ' + param_kernel + '\n',
           '\t' + 'Degree: ' + str(param_degree) + '\n',
           '\t' + 'Cost: ' + str(param_C) + '\n',
