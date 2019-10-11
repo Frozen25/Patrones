@@ -204,7 +204,7 @@ def test_classifier(X_test, Y_test, classifier):
     # pick random indexes from 0 to size of our predicted dataset
     # // show_some_digits(X_test, predicted, title_text="Predicted {}")
 
-    print("Classification report for classifier %s:\n%s\n"
+    print("Classification report for classifier %s:\n%s"
           % (classifier, metrics.classification_report(expected, predicted)))
 
     cm = metrics.confusion_matrix(expected, predicted)
