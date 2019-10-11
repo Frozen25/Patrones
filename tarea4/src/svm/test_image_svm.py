@@ -1,20 +1,34 @@
-import cv2
+# Importa PIL para el manejo de la imagen
+import PIL
+from PIL import Image, ImageDraw, ImageOps
 import numpy as np
-# serializer import/export
+# Importa joblib para cargar SVM
 import joblib
 
-img = cv2.imread('resource/number.png')
-img = cv2.resize(img,(28,28))
-img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-img = np.invert(img)
-
-img = img/255
-
+# Ejemplo: svm_poly_5_3_0.05_0.001_-1.sav
 filename = input(
     "Enter classifier to use: ")
 
 classifier = joblib.load("resource/" + filename)
 print('File used:', filename)
 
-#predicted = classifier.predict(img)
-#print("Valor predicho:", predicted)
+cont = True
+while cont:
+
+    im2 = PIL.Image.open("resource/number.png")
+
+    convim2 = im2.convert('L')  # Lineal en escala de grises (normaliza datos)
+
+    cim2 = PIL.ImageOps.invert(convim2)
+
+    data2 = np.array(cim2)
+
+    dataT2 = np.reshape(data2, (1, 784))
+
+    predicted = classifier.predict(dataT2)
+
+    print("Valor predicho:", predicted)
+
+    inputContinue = input("Scan again? (0-1): ")
+    if(inputContinue != '1'):
+        cont = False
