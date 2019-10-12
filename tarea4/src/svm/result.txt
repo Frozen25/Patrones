@@ -3,13 +3,11 @@ Classifier info:
         Degree: 5
         Cost: 3
         Gamma: 0.05
-        Tolerance: 0.001
-        Max_Iter: -1
-
-Start learning at 2019-10-10 18:41:36.187220
-Stop learning 2019-10-10 18:46:01.822147
-Elapsed learning 0:04:25.634927
-File save: svm_poly_5_3_0.05_0.001_-1.sav
+        Tolerance: 0.001                       Max_Iter: -1
+                                                     Start learning at 2019-10-12 07:54:18.990547
+Stop learning 2019-10-12 07:59:11.227264
+Elapsed learning 0:04:52.236717
+File save: resource/svm_poly_5_3_0.05_0.001_-1.sav
 
 Classifier info:
         Kernal: linear
@@ -19,10 +17,10 @@ Classifier info:
         Tolerance: 0.001
         Max_Iter: -1
 
-Start learning at 2019-10-10 18:46:02.068836
-Stop learning 2019-10-10 18:51:51.733179
-Elapsed learning 0:05:49.664343
-File save: svm_linear_5_3_0.05_0.001_-1.sav
+Start learning at 2019-10-12 07:59:13.008181
+Stop learning 2019-10-12 08:05:01.918980
+Elapsed learning 0:05:48.910799
+File save: resource/svm_linear_5_3_0.05_0.001_-1.sav
 
 Classifier info:
         Kernal: rbf
@@ -32,10 +30,10 @@ Classifier info:
         Tolerance: 0.001
         Max_Iter: -1
 
-Start learning at 2019-10-10 18:51:52.063050
-Stop learning 2019-10-10 19:21:35.874236
-Elapsed learning 0:29:43.811186
-File save: svm_rbf_5_3_0.05_0.001_-1.sav
+Start learning at 2019-10-12 08:05:02.222856
+Stop learning 2019-10-12 08:22:45.312034
+Elapsed learning 0:17:43.089178
+File save: resource/svm_rbf_5_3_0.05_0.001_-1.sav
 
 Classifier info:
         Kernal: sigmoid
@@ -45,10 +43,10 @@ Classifier info:
         Tolerance: 0.001
         Max_Iter: -1
 
-Start learning at 2019-10-10 19:21:37.388517
-Stop learning 2019-10-10 20:00:28.425408
-Elapsed learning 0:38:51.036891
-File save: svm_sigmoid_5_3_0.05_0.001_-1.sav
+Start learning at 2019-10-12 08:22:46.006656
+Stop learning 2019-10-12 08:48:49.609672
+Elapsed learning 0:26:03.603016
+File save: resource/svm_sigmoid_5_3_0.05_0.001_-1.sav
 
 Classification report for classifier SVC(C=3, cache_size=200, class_weight=None, coef0=0.0,
     decision_function_shape='ovr', degree=5, gamma=0.05, kernel='poly',
@@ -82,6 +80,7 @@ Confusion matrix:
  [   3   21   19    2   12    2    0 2374    7   15]
  [   9   24   10   28    5   21    2    5 2082   10]
  [  19   24    7   14   22    6    0   14   15 2180]]
+ 
 Accuracy=0.9623376623376624
 
 Classification report for classifier SVC(C=3, cache_size=200, class_weight=None, coef0=0.0,
@@ -116,6 +115,7 @@ Confusion matrix:
  [   3    9   47   21   25    9    0 2301    2   38]
  [  21   39   22   72    6   56   20   16 1920   24]
  [  14   22   17   24   65   11    0   76   19 2053]]
+
 Accuracy=0.9258874458874459
 
 Classification report for classifier SVC(C=3, cache_size=200, class_weight=None, coef0=0.0,
@@ -150,6 +150,7 @@ Confusion matrix:
  [   1    8   19    0    6    1    0 2404    2   14]
  [   3    7   10    9    4    7    2    6 2144    4]
  [  13    7    6   12   13    3    1   11    6 2229]]
+
 Accuracy=0.9812121212121212
 
 Classification report for classifier SVC(C=3, cache_size=200, class_weight=None, coef0=0.0,
@@ -184,4 +185,5 @@ Confusion matrix:
  [  71  238   23   75  155   45    0  782   29 1037]
  [ 104 1361   65   66   19   79   12    1  283  206]
  [ 132  352   67  119  450  103    1   59   34  984]]
+
 Accuracy=0.3472294372294372

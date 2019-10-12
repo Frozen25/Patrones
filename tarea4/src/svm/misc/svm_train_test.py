@@ -180,7 +180,7 @@ def train_kernel(param_kernel, param_degree, param_C, param_gamma,
     filename += '_' + str(param_max_iter)
     filename += '.sav'
     joblib.dump(classifier, filename)
-    print('File save:', filename)
+    print('\nFile save:', filename)
     
     return classifier
 
@@ -204,7 +204,7 @@ def test_classifier(X_test, Y_test, classifier):
     # pick random indexes from 0 to size of our predicted dataset
     # // show_some_digits(X_test, predicted, title_text="Predicted {}")
 
-    print("Classification report for classifier %s:\n%s"
+    print("\nClassification report for classifier %s:\n%s"
           % (classifier, metrics.classification_report(expected, predicted)))
 
     cm = metrics.confusion_matrix(expected, predicted)
@@ -213,4 +213,5 @@ def test_classifier(X_test, Y_test, classifier):
     # plots a heatmap of the confusion matrix
     # // plot_confusion_matrix(cm)
 
-    print("Accuracy={}".format(metrics.accuracy_score(expected, predicted)))
+    print("\nAccuracy={}".format(metrics.accuracy_score(expected, predicted)))
+    print("\n")
