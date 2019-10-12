@@ -7,6 +7,14 @@ import numpy as np
 import joblib
 import cv2
 
+# + Cargador del SVM
+filename = input(
+    "Enter classifier to use: ")
+
+# Ejemplo: svm_poly_5_3_0.05_0.001_-1.sav
+classifier = joblib.load("resource/" + filename)
+print('File used:', filename)
+
 
 def save():
     filename = 'resource/number.png'
@@ -39,6 +47,8 @@ def paint(e):
 
 
 def predict():
+    global classifier
+
     im2 = PIL.Image.open("resource/number.png")
 
     convim2 = im2.convert('L')  # Lineal en escala de grises (normaliza datos)
@@ -56,13 +66,6 @@ def predict():
 
 # + Main del archivo
 size = 200
-
-filename = input(
-    "Enter classifier to use: ")
-
-# Ejemplo: svm_poly_5_3_0.05_0.001_-1.sav
-classifier = joblib.load("resource/" + filename)
-print('File used:', filename)
 
 root = Tk()
 lastx, lasty = None, None
