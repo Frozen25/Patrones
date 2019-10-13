@@ -121,8 +121,8 @@ def custom_svm(X_train, Y_train):
                  param_tolerance, param_max_iter, X_train, Y_train)
 
 
-def train_kernel(param_kernel, param_degree, param_C, param_gamma,
-                 param_tolerance, param_max_iter, X_train, Y_train):
+def train_kernel(X_train, Y_train, param_kernel, param_degree, param_C, param_gamma,
+                 param_tolerance=1e-3, param_max_iter=-1):
     '''Function that, with the given parameters, train a SVM.
     Then saves the dataset with a `filename` according to the input parameters.
 
