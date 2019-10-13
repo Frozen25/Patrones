@@ -24,28 +24,30 @@ from .mnist_helpers import *
 # We have to reshape each data row, from flat array of 784 int to 28x28 2D array
 
 # ---------------- classification begins -----------------
+
+
 def create_dataset(test_percentage, seed):
     '''Function that gets the dataset from mnist and divides the set between train and test.
-    
+
     Parameters
     ----------
-    
+
     test_percentage: test_size percentage to divide from all the data.
-    
+
     seed: seed used to generate a random division.
-    
+
     Returns
     ----------
-    
+
     X_train: dataset to train the SVM.
-    
+
     X_test: datatset to test the SVM.
-    
+
     Y_train: dataset of the results to train the SVM.
-    
+
     Y_test: dataset of the test result to test.
     '''
-    
+
     # it creates mldata folder in your root project folder
     mnist = fetch_openml('mnist_784')
 
@@ -56,30 +58,30 @@ def create_dataset(test_percentage, seed):
     # data field is 70k x 784 array, each row represents pixels from 28x28=784 image
     images = mnist.data
     targets = mnist.target
-    
+
     # pick random indexes from 0 to size of our dataset
     # // show_some_digits(images, targets)
-    
+
     # full dataset classification
-    X_data = images/255.0 # scale data for [0,255] -> [0,1]
+    X_data = images/255.0  # scale data for [0,255] -> [0,1]
     Y = targets
 
     # split data to train and test
     X_train, X_test, Y_train, Y_test = train_test_split(
         X_data, Y, test_size=test_percentage, random_state=seed)
-    
+
     return X_train, X_test, Y_train, Y_test
 
 
 ################ Classifier with good params ###########
 def custom_svm(X_train, Y_train):
     '''Function that starts input request to create a custom SVM.
-    
+
     Parameters
     ----------
-    
+
     X_train: dataset used for training the SVM
-    
+
     Y_traing: labels of the dataset used for training the SVM
     '''
 
@@ -129,7 +131,7 @@ def train_kernel(X_train, Y_train, param_kernel, param_degree, param_C, param_ga
     Parameters
     ----------
     param_kernel: Specifies the kernel type to be used in the algorithm.
-    
+
     param_degree: Degree of the polynomial kernel function.
 
     param_C: Penalty parameter C of the error term.
@@ -139,11 +141,11 @@ def train_kernel(X_train, Y_train, param_kernel, param_degree, param_C, param_ga
     param_tolerance: Tolerance for stopping criterion.
 
     param_max_iter: Hard limit on iterations within solver.
-    
+
     X_train: dataset used for training the SVM
-    
+
     Y_traing: labels of the dataset used for training the SVM
-    
+
     Returns
     ----------
     The SVM classifier already trained
@@ -181,7 +183,7 @@ def train_kernel(X_train, Y_train, param_kernel, param_degree, param_C, param_ga
     filename += '.sav'
     joblib.dump(classifier, filename)
     print('\nFile save:', filename)
-    
+
     return classifier
 
 

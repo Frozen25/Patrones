@@ -5,8 +5,8 @@ X_train, X_test, Y_train, Y_test = create_dataset(0.33, 42)
 
 # Trains all the types of kernel with the same dataset
 classifier_poly = train_kernel(X_train, Y_train, 'poly', 3, 5, 0.05)
-classifier_linear = train_kernel(X_train, Y_train ,'linear', 3, 5, 0.05)
-classifier_rbf = train_kernel(X_train, Y_train ,'rbf', 3, 5, 0.05)
+classifier_linear = train_kernel(X_train, Y_train, 'linear', 3, 5, 0.05)
+classifier_rbf = train_kernel(X_train, Y_train, 'rbf', 3, 5, 0.05)
 classifier_sigmoid = train_kernel(X_train, Y_train, 'sigmoid', 3, 5, 0.05)
 
 # Different degrees
