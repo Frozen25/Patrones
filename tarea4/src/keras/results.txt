@@ -1,167 +1,244 @@
-top models:
+Best models:
 15	11	13
 
-model 1:
-50 sigmoid
-50 relu
-10 epochs
-Recall	0.9679542892
-Precision	0.9680705229
-F1	0.9680124026
-Loss:	0.1088766529825516
+Model 1:
+- Layers:
+  - 50 Neurons, Activation: Sigmoid
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9679542892
+  - Acc: 0.9680705229
+  - F1: 0.9680124026
+  - Loss: 0.1088766529
 
 
-model 2:
-50 relu
-50 relu
-10 epochs
-Recall	0.9679542892
-Precision	0.9680705229
-F1	0.9680124026
-Loss:	0.11426454897113145
 
 
-model 3:
-50 relu
-10 epochs
-Recall	0.9690927815
-Precision	0.9692299287
-F1	0.9691613502
-Loss:	0.10706903488235549
+
+Model 2:
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9679542892
+  - Acc: 0.9680705229
+  - F1: 0.9680124026
+  - Loss: 0.11426454897
 
 
-model 4:
-50 relu
-50 relu
-50 relu
-10 epochs
-Recall	0.9695099874
-Precision	0.9694069894
-F1	0.9694584856
-Loss:	0.11713222574329703
 
 
-model 5:
-50 relu
-50 relu
-50 relu
-50 relu
-10 epochs
-Recall	0.9677661111
-Precision	0.9679104183
-F1	0.9678382593
-Loss:	0.12038527199162637
+
+Model 3:
+- Layers:
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9690927815
+  - Acc: 0.9692299287
+  - F1: 0.9691613502
+  - Loss: 0.10706903488
 
 
-model 6:
-100 relu
-100 relu
-100 relu
-10 epochs
-Recall	0.9695099874
-Precision	0.9694069894
-F1	0.9694584856
-Loss:	0.11713222574329703
 
 
-model 7:
-10 relu
-10 relu
-10 relu
-10 epochs
-Recall	0.9284715247
-Precision	0.9289083085
-F1	0.9286898653
-Loss:	0.2395130266368389
+
+Model 4:
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9695099874
+  - Acc: 0.9694069894
+  - F1: 0.9694584856
+  - Loss: 0.11713222574
 
 
-model 8:
-30 relu
-30 relu
-30 relu
-10 epochs
-Recall	0.9602377538
-Precision	0.9603181626
-F1	0.9602779565
-Loss:	0.1391685497023165
 
 
-model 9:
-70 relu
-70 relu
-70 relu
-10 epochs
-Recall	0.9735645212
-Precision	0.9738397572
-F1	0.9737021197
-Loss:	0.11985747938062705
+
+Model 5:
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9677661111
+  - Acc: 0.9679104183
+  - F1: 0.9678382593
+  - Loss: 0.12038527199
 
 
-model 10:
-70 relu
-70 relu
-10 epochs
-Recall	0.9699673718
-Precision	0.970365172
-F1	0.9701662311
-Loss:	0.11810485561816021
 
 
-model 11:
-60 relu
-60 relu
-10 epochs
-Recall	0.9713968892
-Precision	0.9717056454
-F1	0.9715512428
-Loss:	0.1071203510533087
+
+Model 6:
+- Layers:
+  - 100 Neurons, Activation: ReLu
+  - 100 Neurons, Activation: ReLu
+  - 100 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9695099874
+  - Acc: 0.9694069894
+  - F1: 0.9694584856
+  - Loss: 0.11713222574
 
 
-model 12:
-80 relu
-80 relu
-10 epochs
-Recall	0.9719975946
-Precision	0.9715814364
-F1	0.9717894709
-Loss:	0.11272850975769107
 
 
-model 13:
-65 relu
-65 relu
-10 epochs
-Recall	0.9695027571
-Precision	0.9694682312
-F1	0.9694854938
-Loss:	0.11334204770788783
+
+Model 7:
+- Layers:
+  - 10 Neurons, Activation: ReLu
+  - 10 Neurons, Activation: ReLu
+  - 10 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9284715247
+  - Acc: 0.9289083085
+  - F1: 0.9286898653
+  - Loss: 0.2395130266
 
 
-model 14:
-60 sigmoid
-60 sigmoid
-10 epochs
-Recall	0.968109089
-Precision	0.9676500086
-F1	0.9678794944
-Loss:	0.10651592469923198
 
 
-model 15:
-60 relu
-60 sigmoid
-10 epochs
-Recall	0.9700781144
-Precision	0.9708217072
-F1	0.9704497684
-Loss:	0.09385974776013754
+
+Model 8:
+- Layers:
+  - 30 Neurons, Activation: ReLu
+  - 30 Neurons, Activation: ReLu
+  - 30 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9602377538
+  - Acc: 0.9603181626
+  - F1: 0.9602779565
+  - Loss: 0.1391685497
 
 
-model 16:
-60 sigmoid
-60 relu
-10 epochs
-Recall	0.9672336649
-Precision	0.967889381
-F1	0.9675614119
-Loss:	0.1027734177865088
+
+
+
+Model 9:
+- Layers:
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9735645212
+  - Acc: 0.9738397572
+  - F1: 0.9737021197
+  - Loss: 0.11985747938
+
+
+
+
+
+- Layers:
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9699673718
+  - Acc: 0.970365172|
+  - F1: .9701662311|
+  - Loss: .11810485561
+
+
+
+
+
+- Layers:
+  - 60 Neurons, Activation: ReLu
+  - 60 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9713968892
+  - Acc: 0.9717056454
+  - F1: 0.9715512428
+  - Loss: 0.1071203510
+
+
+
+
+
+- Layers:
+  - 80 Neurons, Activation: ReLu
+  - 80 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9719975946
+  - Acc: 0.9715814364
+  - F1: 0.9717894709
+  - Loss: 0.11272850975
+
+
+
+
+
+- Layers:
+  - 65 Neurons, Activation: ReLu
+  - 65 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9695027571
+  - Acc: 0.9694682312
+  - F1: 0.9694854938
+  - Loss: 0.11334204770
+
+
+
+
+
+- Layers:
+  - 60 Neurons, Activation: Sigmoid
+  - 60 Neurons, Activation: Sigmoid
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.968109089 
+  - Acc: .9676500086|
+  - F1: .9678794944|
+  - Loss: .10651592469
+
+
+
+
+
+- Layers:
+  - 60 Neurons, Activation: ReLu
+  - 60 Neurons, Activation: Sigmoid
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9700781144
+  - Acc: 0.9708217072
+  - F1: 0.9704497684
+  - Loss: 0.09385974776
+
+
+
+
+
+- Layers:
+  - 60 Neurons, Activation: Sigmoid
+  - 60 Neurons, Activation: ReLu
+- Epochs: 10 
+- Metrics:
+  - Recall: 0.9672336649
+  - Acc: 0.967889381|
+  - F1: .9675614119|
+  - Loss: .1027734177
+
+
+
+Model 13:
+- Layers:
+  - 65 Neurons, Activation: ReLu
+  - 65 Neurons, Activation: ReLu
