@@ -96,10 +96,10 @@ El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se g
 
 ## Keras y Deep Learning
 
-Navegue a la carpeta de SVM. Esta se encuentra dentro de la carpeta `src`.
+Navegue a la carpeta de Keras. Esta se encuentra dentro de la carpeta `src`.
 
 ```(console)
-cd src/svm
+cd src/keras
 ```
 
 ### Creación y entrenamiento de la red
