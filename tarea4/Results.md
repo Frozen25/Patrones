@@ -6,8 +6,8 @@
     - [Resultados completos SVM](#resultados-completos-svm)
   - [Red Neuronal](#red-neuronal)
     - [Resumen de los resultados de la red](#resumen-de-los-resultados-de-la-red)
-    - [Resultados completos Red](#resultados-completos-red)
     - [Comparación contra SVM](#comparación-contra-svm)
+    - [Resultados completos de la red](#resultados-completos-de-la-red)
 
 ## SVM
 
@@ -356,17 +356,29 @@ En esta sección solo se consideran los valores de pérdida y precisión de los 
 
 Table: Comparación de precisión y pérdida de los mejores modelos encontrados
 
-### Resultados completos Red
+Modelo 15:
 
-Model 1:
+- Primera capa: 60 neuronas, activación: ReLu
+- Segunda capa: 60 neuronas, activación: Sigmoide
+- Epocas: 10
+- Loss: 0.0938597477
+- Accuracy: 0.9706
 
-- Layers:
-  - 50 Neurons, Activation: Sigmoid
-  - 50 Neurons, Activation: ReLu
-- Epochs: 10
-- Metrics:
-  - Recall: 0.9679542892
-  - Acc: 0.9680705229
+Modelo 11:
+
+- Primera capa: 60 neuronas, activación: ReLu
+- Segunda capa: 60 neuronas, activación: ReLue
+- Epocas: 10
+- Loss: 0.1071203510
+- Accuracy: 0.9717
+
+Modelo 13:
+
+- Primera capa: 65 neuronas, activación: ReLu
+- Segunda capa: 65 neuronas, activación: ReLue
+- Epocas: 10
+- Loss: 0.1133420477
+- Accuracy: 0.9698
 
 ### Comparación contra SVM
 
@@ -385,7 +397,380 @@ Las mejores configuraciones encontradas para SVM y Red neuronal están dadas por
 
 Se puede observar que hay una diferencia de precisiones menor al 1%.
 
-- F1: 0.9680124026
-- Loss: 0.1088766529
+### Resultados completos de la red
 
-En esta sección se detalla la configuración de cada uno de los entrenamientos realizados, así como las métricas de Exhaustividad, Precisión, valor F1 y pérdida. Además se adjunta a cada entrenamiento la matriz de confusión resultante.
+En esta sección se detalla la configuración de cada uno de los entrenamientos realizados, así como las métricas de Precisión y pérdida. Además se adjunta a cada entrenamiento la matriz de confusión resultante.
+
+Model 1:
+
+- Layers:
+  - 50 Neurons, Activation: Sigmoid
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1088766529
+- Accuracy: 0.9686
+- Confusion matrix:
+
+```()
+ 968     0     0     0     0     2     7     1     2     0
+   0  1112     6     0     0     0     4     1    12     0
+   5     1   997     9     1     0     4     7     8     0
+   0     1     5   983     2     5     0     6     8     0
+   2     0     6     1   951     1     7     2     5     7
+   4     0     0    16     1   851     8     0    11     1
+   5     2     0     0     2     4   940     0     5     0
+   3     5     8     9     2     1     0   996     3     1
+   4     1     1    11     4     4     5     2   940     2
+   3     6     0    14    12     5     1     7    13   948
+```
+
+Model 2:
+
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1142645489
+- Accuracy: 0.9681
+- Confusion matrix:
+
+```()
+ 969     0     1     0     1     1     2     1     2     3
+   0  1104     6     2     0     0     5     1    16     1
+   4     1   998     8     5     0     3     9     4     0
+   0     1     6   984     0     8     1     4     3     3
+   1     0     5     1   951     0     2     5     2    15
+   3     0     0    20     1   856     5     1     4     2
+   5     2     1     2     5     2   938     0     3     0
+   1     2     7     9     1     0     0   998     0    10
+   6     1     5    16     8     8     5     3   914     8
+   2     3     0    12     9     6     0     5     3   969
+```
+
+Model 3:
+
+- Layers:
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1070690348
+- Accuracy: 0.9694
+- Confusion matrix:
+
+```()
+ 959     0     1     0     1     5     8     1     2     3
+   0  1120     5     0     0     0     2     0     7     1
+   5     1   992    12     2     0     5     7     8     0
+   0     1     1   983     1     8     2     5     4     5
+   0     0     4     1   955     0     8     0     2    12
+   2     0     1    17     0   851    12     2     4     3
+   5     3     1     0     1     4   942     0     2     0
+   1     5    12     5     2     1     0   992     2     8
+   3     2     3     7     9     6     3     4   932     5
+   3     5     0    10    13     3     0     4     3   968
+```
+
+Model 4:
+
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1171322257
+- Accuracy: 0.9696
+- Confusion matrix:
+
+```()
+ 970     0     0     0     0     2     4     1     2     1
+   0  1108     5     1     0     1     7     0    13     0
+   4     0  1003     8     1     0     3     5     8     0
+   2     1     3   979     0    11     0     3     9     2
+   3     0     5     0   934     1     6     8    11    14
+   3     0     0    15     0   862     5     1     5     1
+   6     2     0     1     2     5   938     0     4     0
+   2     3     8     8     1     0     0   998     3     5
+   2     1     4     9     0     7     4     4   939     4
+   1     3     0     4     9     6     2     6    13   965
+```
+
+Model 5:
+
+- Layers:
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+  - 50 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1203852719
+- Accuracy: 0.968
+- Confusion matrix:
+
+```()
+ 972     0     0     0     0     2     3     1     2     0
+   1  1116     6     0     0     0     0     0    12     0
+   9     0   998     1     2     1     1     6    13     1
+   0     1     9   967     1    12     0     3     7    10
+   3     0     2     0   950     0     6     0     3    18
+   4     1     1     9     0   853     9     0    11     4
+  10     3     2     1     5     4   929     0     4     0
+   2     4    14     3     4     1     0   986     6     8
+   8     1     3     2     3     2     4     4   942     5
+   4     4     0     3     9     5     1     4    12   967
+```
+
+Model 6:
+
+- Layers:
+  - 100 Neurons, Activation: ReLu
+  - 100 Neurons, Activation: ReLu
+  - 100 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1171322257
+- Accuracy: 0.9696
+- Confusion matrix:
+
+```()
+ 970     0     0     0     0     2     4     1     2     1
+   0  1108     5     1     0     1     7     0    13     0
+   4     0  1003     8     1     0     3     5     8     0
+   2     1     3   979     0    11     0     3     9     2
+   3     0     5     0   934     1     6     8    11    14
+   3     0     0    15     0   862     5     1     5     1
+   6     2     0     1     2     5   938     0     4     0
+   2     3     8     8     1     0     0   998     3     5
+   2     1     4     9     0     7     4     4   939     4
+   1     3     0     4     9     6     2     6    13   965
+```
+
+Model 7:
+
+- Layers:
+  - 10 Neurons, Activation: ReLu
+  - 10 Neurons, Activation: ReLu
+  - 10 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.2395130266
+- Accuracy: 0.9296
+- Confusion matrix:
+
+```()
+ 954     1     0     1     2     6     8     4     2     2
+   0  1117     4     2     0     2     2     0     7     1
+   7     3   937    29    12     4     8     6    25     1
+   0     0    15   917     0    30     0    20    26     2
+   3     4     6     0   933     0    10     3     9    14
+  20     1     5    37     0   769    16     0    37     7
+  15     4     2     0     9     9   913     0     6     0
+   3     8    27    13     3     0     0   940     2    32
+   6     6     6    16     8    16    10     2   893    11
+   9     8     3     2    30    10     0    10    14   923
+```
+
+Model 8:
+
+- Layers:
+  - 30 Neurons, Activation: ReLu
+  - 30 Neurons, Activation: ReLu
+  - 30 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1391685497
+- Accuracy: 0.9605
+- Confusion matrix:
+
+```()
+ 960     0     1     0     2     9     3     0     2     3
+   0  1113     6     1     0     2     3     1     9     0
+   7     4   991     5     2     1     5     8     9     0
+   0     0     7   969     1    15     2     5     8     3
+   1     1     4     0   917     1     6     6     3    43
+   3     0     1     9     1   854     9     1     8     6
+   3     3     4     0     4    10   927     0     7     0
+   0     8    15     7     2     2     0   976     2    16
+   1     1     3     5     6     7     4     4   931    12
+   5     3     2     8     7    10     0     3     4   967
+```
+
+Model 9:
+
+- Layers:
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1198574793
+- Accuracy: 0.9738
+- Confusion matrix:
+
+```()
+ 973     0     0     0     1     2     1     0     2     1
+   0  1123     5     0     0     0     3     1     3     0
+   2     1  1020     1     3     0     2     3     0     0
+   1     1    16   962     1    13     1     7     4     4
+   2     2     6     0   960     0     2     3     1     6
+   2     0     0    10     0   871     4     1     3     1
+   9     2     3     0     3     6   934     0     1     0
+   1     3     9     0     1     0     0  1012     0     2
+   5     3    15     3     3     8     2     6   923     6
+   3     4     1     4    14     7     1    12     3   960
+```
+
+Model 10:
+
+- Layers:
+  - 70 Neurons, Activation: ReLu
+  - 70 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1181048556
+- Accuracy: 0.9703
+- Confusion matrix:
+
+```()
+ 956     1     1     2     2     4     6     0     2     6
+   0  1125     3     1     0     0     2     0     3     1
+   2     2  1013     3     1     1     1     2     7     0
+   0     2     7   988     1     4     0     3     4     1
+   0     2     5     0   962     0     3     1     3     6
+   2     0     1    16     2   858     3     1     8     1
+   2     3     3     1     4     5   934     0     6     0
+   2     8    13    12     1     0     0   982     2     8
+   6     1     4     7     7     6     1     4   934     4
+   1     7     0    10    19     7     1     5     8   951
+```
+
+Model 11:
+
+- Layers:
+  - 60 Neurons, Activation: ReLu
+  - 60 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1071203510
+- Accuracy: 0.9717
+- Confusion matrix:
+
+```()
+ 970     0     0     1     1     1     2     1     2     2
+   0  1119     3     0     0     0     4     0     9     0
+   9     0   986    13     5     0     1     8    10     0
+   0     0     0   998     0     2     0     5     3     2
+   2     0     3     1   952     0     3     1     4    16
+   4     0     0    20     2   855     1     0     7     3
+  11     2     0     1     8     4   926     0     6     0
+   1     4    10     5     0     0     0  1002     1     5
+   9     0     2     6     2     8     2     2   940     3
+   2     5     0     9    11     5     0     0     8   969
+```
+
+Model 12:
+
+- Layers:
+  - 80 Neurons, Activation: ReLu
+  - 80 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1127285097
+- Accuracy: 0.9719
+- Confusion matrix:
+
+```()
+ 968     0     0     0     1     4     2     0     3     2
+   0  1104     4     1     0     1     3     2    19     1
+   4     1   985    10     2     0     3     7    20     0
+   0     0     5   980     1    11     0     5     5     3
+   0     1     4     0   951     0     6     5     2    13
+   2     0     0     8     0   870     5     1     4     2
+   4     2     3     0     4    10   935     0     0     0
+   1     1     7     2     0     0     0  1010     1     6
+   3     1     1     5     4     7     2     3   944     4
+   1     2     0     4    13     7     0     5     5   972
+```
+
+Model 13
+
+- Layers:
+  - 65 Neurons, Activation: ReLu
+  - 65 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1133420477
+- Accuracy: 0.9698
+- Confusion matrix:
+
+```()
+ 959     0     0     1     0     5     8     2     2     3
+   0  1122     5     0     0     0     4     1     3     0
+   3     3   995     8     3     0     5     7     7     1
+   0     0     5   980     2     7     0     6     4     6
+   2     0     6     0   962     0     3     1     0     8
+   3     0     0    18     0   858     9     0     2     2
+   2     2     1     1     2     3   943     0     4     0
+   0     5     6     4     3     1     0  1001     2     6
+   4     1     2     8     6    22     4     6   916     5
+   0     3     1    12    17     5     1     5     3   962
+```
+
+Model 14
+
+- Layers:
+  - 60 Neurons, Activation: Sigmoid
+  - 60 Neurons, Activation: Sigmoid
+- Epochs: 10
+- Loss: 0.1065159246
+- Accuracy: 0.9681
+- Confusion matrix:
+
+```()
+ 967     0     1     2     0     5     5     0     0     0
+   0  1114     4     0     0     0     3     0    14     0
+   5     4   992    11     7     2     1     4     6     0
+   0     0     4   972     2    17     0     6     7     2
+   1     0     4     1   960     0     6     1     2     7
+   2     0     2     3     1   871     6     1     3     3
+   7     2     1     1     5     7   931     0     4     0
+   3     3    12     9     3     1     0   985     3     9
+   3     1     4     8    10     7     4     3   928     6
+   3     3     0     6    13    14     1     4     4   961
+```
+
+Model 15
+
+- Layers:
+  - 60 Neurons, Activation: ReLu
+  - 60 Neurons, Activation: Sigmoid
+- Epochs: 10
+- Loss: 0.0938597477
+- Accuracy: 0.9706
+- Confusion matrix:
+
+```()
+ 962     0     4     1     1     2     5     1     3     1
+   0  1125     3     1     0     0     1     0     5     0
+   2     1  1006    11     2     0     2     5     3     0
+   0     0     3   995     0     1     0     3     6     2
+   1     1     6     0   945     0     6     5     3    15
+   2     0     0    27     1   845     6     1     7     3
+   6     3     1     2     3     8   932     0     2     1
+   1     4    10    13     3     0     0   986     1    10
+   1     1     2    13     6     4     3     3   938     3
+   2     4     0     8    11     2     1     4     5   972
+```
+
+Model 16
+
+- Layers:
+  - 60 Neurons, Activation: Sigmoid
+  - 60 Neurons, Activation: ReLu
+- Epochs: 10
+- Loss: 0.1027734177
+- Accuracy: 0.9677
+- Confusion matrix:
+
+```()
+ 965     0     0     1     0     1     7     2     2     2
+   0  1113     3     0     0     1     5     2    11     0
+   5     1   999     8     2     0     3     5     9     0
+   0     0     4   988     1     5     1     4     6     1
+   1     1     4     1   953     0     7     3     2    10
+   4     0     1    31     1   834    11     4     5     1
+   6     3     2     1     4     1   938     0     3     0
+   2     5    12     7     2     0     0   993     2     5
+   5     3     6     8     5     3     5     3   931     5
+   4     4     0    15    11     3     1     4     4   963
+```
