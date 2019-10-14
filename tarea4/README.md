@@ -1,5 +1,14 @@
 # Tarea4
 
+- [Tarea4](#tarea4)
+  - [Scikit Learn y SVM](#scikit-learn-y-svm)
+    - [Creación y entrenamiento de SVM](#creación-y-entrenamiento-de-svm)
+    - [Clasificación de imagen arbitraria con SVM](#clasificación-de-imagen-arbitraria-con-svm)
+  - [Keras y Deep Learning](#keras-y-deep-learning)
+    - [Creación y entrenamiento de la red](#creación-y-entrenamiento-de-la-red)
+    - [Clasificación de imagen arbitraria con keras](#clasificación-de-imagen-arbitraria-con-keras)
+  - [Dependencias](#dependencias)
+
 Abrir una consola desde la carpeta principal.
 
 ## Scikit Learn y SVM
