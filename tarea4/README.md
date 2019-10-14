@@ -87,7 +87,50 @@ El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se g
 
 ## Keras y Deep Learning
 
-ALEXIS AQUI VA LO SUYO
+Navegue a la carpeta de SVM. Esta se encuentra dentro de la carpeta `src`.
+
+```(console)
+cd src/svm
+```
+### Creación y entrenamiento de la red
+
+Para la creación de la red neuronal, ejecutar:
+
+```(console)
+$ python3 train.py
+```
+Se solicitará si se desea utilizar la configuración por defecto:
+```
+$ Default configuration? (0-1): 
+```
+Si se elige '0', se preguntará por la cantidad de capas:
+```
+$ Enter amount of layers (1-100):
+```
+Luego se preguntará por la fución de activación de la capa por agregar
+```
+$ For layer #, relu or sigmoid?: 
+```
+Por último se solicitará la cantidad de neuronas de la capa por agregar
+```
+$ Enter the number of neurons (1-200):
+```
+
+Al final del entrenamiento se muestra la matriz de confusión y los valores de precisión y pérdida finales.
+
+
+### Clasificación de imagen arbitraria
+
+Para clasificar una imagen, es necesario tener la red generada en el punto anterior.
+
+```(console)
+python3 test.py
+```
+
+Se abre una ventana en donde se puede dibujar con el puntero un número. 
+
+Al hacer clic en el botón "Predict" el dibujo se guarda como `number.png` en la carpeta `resources`. Cada vez que se guarda una imagen, el resultado de la predicción se muestra en la consola.
+
 
 ## Dependencias
 

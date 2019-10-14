@@ -18,11 +18,11 @@ x_test = tf.keras.utils.normalize(x_test, axis=1)
 
 
 
-def newdata():
+def default():
   model = tf.keras.models.Sequential()
   model.add(tf.keras.layers.Flatten())    #flattens the data at the input layer
-  model.add(tf.keras.layers.Dense(60, activation=tf.nn.relu))  #second layer 128 neurons
-  model.add(tf.keras.layers.Dense(60, activation=tf.nn.sigmoid))  #second layer 128 neurons
+  model.add(tf.keras.layers.Dense(60, activation=tf.nn.relu))  #second layer 60 neurons
+  model.add(tf.keras.layers.Dense(60, activation=tf.nn.sigmoid))  #second layer 60 neurons
   model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))  #output layer, softmax gives probability distribution
   model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
   model.fit(x_train, y_train, epochs=10) #training data for 3 epochs
@@ -30,6 +30,37 @@ def newdata():
   model.save('resources/num_reader.model')
   new_model = tf.keras.models.load_model('resources/num_reader.model' )  #load model trained
   
+def modular():
+  model = tf.keras.models.Sequential()
+  model.add(tf.keras.layers.Flatten())    #flattens the data at the input layer
+  layers = input("Enter amount of layers (1-100): ")
+  try:
+    ilayers = int(layers)
+  except:
+    ilayers = 2
+  if (ilayers>100) or (ilayers <1):
+    ilayers = 2
+  for i in range(ilayers):
+    mode = input("For layer " +str(i+1) +", relu or sigmoid?: ")
+    neurons = input("Enter the number of neurons (1-200): ")
+    try:
+      ineurons = int(neurons)
+    except:
+      ineurons = 60
+    if (ineurons>200) or (ineurons <1):
+      ineurons = 60
+    if (mode == "relu" ):
+      model.add(tf.keras.layers.Dense(ineurons, activation=tf.nn.relu)) 
+    else:
+      model.add(tf.keras.layers.Dense(ineurons, activation=tf.nn.sigmoid))
+  model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))  #output layer, softmax gives probability distribution
+  model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+  model.fit(x_train, y_train, epochs=10) #training data for 3 epochs
+  #saving model
+  model.save('resources/num_reader.model')
+  new_model = tf.keras.models.load_model('resources/num_reader.model' )  #load model trained
+
+
 
 def testdata():
   new_model = tf.keras.models.load_model('resources/num_reader.model' )  #load model if exists
@@ -44,8 +75,12 @@ def testdata():
   cm = metrics.confusion_matrix(y_test, y_pred)
   print("Confusion matrix:\n%s" % cm)
 
+mod = input("Default configuration? (0-1): ")
 
-newdata()
+if(mod == "0"):
+  modular()
+else:
+  default()
 
 testdata()
   

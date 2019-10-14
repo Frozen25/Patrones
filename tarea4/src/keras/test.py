@@ -59,6 +59,7 @@ def save():
   imgInv = PIL.ImageOps.invert(imageGrey)
   imgA = np.array(imgInv)
   imgNorm = imgA / 255
+  #show resulting number to predict
   #plt.imshow(imgNorm,cmap=plt.cm.binary)
   #plt.show()
   imgNorm = tf.keras.utils.normalize([imgNorm], axis=1)  
