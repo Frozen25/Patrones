@@ -12,12 +12,12 @@ filename = input(
     "Enter classifier to use: ")
 
 # Ejemplo: svm_poly_5_3_0.05_0.001_-1.sav
-classifier = joblib.load("resource/" + filename)
+classifier = joblib.load("resources/" + filename)
 print('File used:', filename)
 
 
 def save():
-    filename = 'resource/number.png'
+    filename = 'resources/number.png'
     # segundo parámetro es 2 para bilineal o 3 para bicubico
     image2 = image1.resize((28, 28), 2)
     image2.save(filename)
@@ -49,7 +49,7 @@ def paint(e):
 def predict():
     global classifier
 
-    im2 = PIL.Image.open("resource/number.png")
+    im2 = PIL.Image.open("resources/number.png")
 
     convim2 = im2.convert('L')  # Lineal en escala de grises (normaliza datos)
 

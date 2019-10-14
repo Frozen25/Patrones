@@ -68,7 +68,7 @@ Accuracy=X
 
 \*_Puede tomar tiempo en realizar todas las pruebas. X es cualquier valor._
 
-Cada SVM generado se guarda en la carpeta `resource`, ubicada dentro del mismo directorio.
+Cada SVM generado se guarda en la carpeta `resources`, ubicada dentro del mismo directorio.
 
 El nombre de cada archivo se basa según las propiedades elegidas en la creación (kernel, grado polinomial, penalidad, gamma, tolerancia, máximas iteraciones).
 
@@ -83,7 +83,7 @@ Enter classifier to use:
 
 Se inserta el nombre del archivo del SVM que desea usar (ej: svm_poly_5_3_0.05_0.001_-1.sav). Una vez se carga el clasificador, se abre una ventana utilizando tkinter en donde se puede dibujar con el puntero.
 
-El boceto se guarda en `number.png` en la carpeta `resource`. Cada vez que se guarda una imagen, el resultado de la predicción se muestra en la consola.
+El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se guarda una imagen, el resultado de la predicción se muestra en la consola.
 
 ## Keras y Deep Learning
 
