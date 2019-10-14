@@ -72,7 +72,7 @@ Cada SVM generado se guarda en la carpeta `resources`, ubicada dentro del mismo 
 
 El nombre de cada archivo se basa según las propiedades elegidas en la creación (kernel, grado polinomial, penalidad, gamma, tolerancia, máximas iteraciones).
 
-### Clasificación de imagen arbitraria
+### Clasificación de imagen arbitraria con SVM
 
 Para clasificar una imagen, es necesario tener algún SVM entrenado y guardado en un `.sav`, como los generados en el punto anterior.
 
@@ -81,7 +81,7 @@ $ python3 test_image_svm.py
 Enter classifier to use:
 ```
 
-Se inserta el nombre del archivo del SVM que desea usar (ej: svm_poly_5_3_0.05_0.001_-1.sav). Una vez se carga el clasificador, se abre una ventana utilizando tkinter en donde se puede dibujar con el puntero.
+Se inserta el nombre del archivo del SVM que desea usar (ej: svm*poly_5_3_0.05_0.001*-1.sav). Una vez se carga el clasificador, se abre una ventana utilizando tkinter en donde se puede dibujar con el puntero.
 
 El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se guarda una imagen, el resultado de la predicción se muestra en la consola.
 
@@ -92,34 +92,42 @@ Navegue a la carpeta de SVM. Esta se encuentra dentro de la carpeta `src`.
 ```(console)
 cd src/svm
 ```
+
 ### Creación y entrenamiento de la red
 
 Para la creación de la red neuronal, ejecutar:
 
 ```(console)
-$ python3 train.py
+python3 train.py
 ```
+
 Se solicitará si se desea utilizar la configuración por defecto:
+
+```(console)
+Default configuration? (0-1):
 ```
-$ Default configuration? (0-1): 
-```
+
 Si se elige '0', se preguntará por la cantidad de capas:
+
+```(console)
+Enter amount of layers (1-100):
 ```
-$ Enter amount of layers (1-100):
-```
+
 Luego se preguntará por la fución de activación de la capa por agregar
+
+```(console)
+For layer #, relu or sigmoid?:
 ```
-$ For layer #, relu or sigmoid?: 
-```
+
 Por último se solicitará la cantidad de neuronas de la capa por agregar
-```
-$ Enter the number of neurons (1-200):
+
+```(console)
+Enter the number of neurons (1-200):
 ```
 
 Al final del entrenamiento se muestra la matriz de confusión y los valores de precisión y pérdida finales.
 
-
-### Clasificación de imagen arbitraria
+### Clasificación de imagen arbitraria con keras
 
 Para clasificar una imagen, es necesario tener la red generada en el punto anterior.
 
@@ -127,10 +135,9 @@ Para clasificar una imagen, es necesario tener la red generada en el punto anter
 python3 test.py
 ```
 
-Se abre una ventana en donde se puede dibujar con el puntero un número. 
+Se abre una ventana en donde se puede dibujar con el puntero un número.
 
 Al hacer clic en el botón "Predict" el dibujo se guarda como `number.png` en la carpeta `resources`. Cada vez que se guarda una imagen, el resultado de la predicción se muestra en la consola.
-
 
 ## Dependencias
 
