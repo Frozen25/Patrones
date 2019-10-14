@@ -15,7 +15,7 @@ mnist = tf.keras.datasets.mnist #load mnist data
 x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 
-new_model = tf.keras.models.load_model('resources/epic_num_reader.model')  #load model if exists
+new_model = tf.keras.models.load_model('resources/num_reader.model')  #load model if exists
 
 def testdata():
   #evaluating training with testing
