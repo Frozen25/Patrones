@@ -15,15 +15,21 @@ Abrir una consola desde la carpeta principal.
 
 Navegue a la carpeta de SVM. Esta se encuentra dentro de la carpeta `src`.
 
-```(console)
+```console
 cd src/svm
+```
+
+Cree la carpeta `resources` donde se guardaran los resultados de los SVM e imagen arbitraria de entrenamiento.
+
+```console
+mkdir resources
 ```
 
 ### Creación y entrenamiento de SVM
 
 Para la creación de diferentes SVM, con distintos parámetros y kernels, puede ejecutar:
 
-```(console)
+```console
 $ python3 test_svm.py
 Classifier info:
         Kernal: *kernel type*
@@ -85,7 +91,7 @@ El nombre de cada archivo se basa según las propiedades elegidas en la creació
 
 Para clasificar una imagen, es necesario tener algún SVM entrenado y guardado en un `.sav`, como los generados en el punto anterior.
 
-```(console)
+```console
 $ python3 test_image_svm.py
 Enter classifier to use:
 ```
@@ -98,7 +104,7 @@ El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se g
 
 Navegue a la carpeta de Keras. Esta se encuentra dentro de la carpeta `src`.
 
-```(console)
+```console
 cd src/keras
 ```
 
@@ -106,31 +112,31 @@ cd src/keras
 
 Para la creación de la red neuronal, ejecutar:
 
-```(console)
+```console
 python3 train.py
 ```
 
 Se solicitará si se desea utilizar la configuración por defecto:
 
-```(console)
+```console
 Default configuration? (0-1):
 ```
 
 Si se elige '0', se preguntará por la cantidad de capas:
 
-```(console)
+```console
 Enter amount of layers (1-100):
 ```
 
 Luego se preguntará por la fución de activación de la capa por agregar
 
-```(console)
+```console
 For layer #, relu or sigmoid?:
 ```
 
 Por último se solicitará la cantidad de neuronas de la capa por agregar
 
-```(console)
+```console
 Enter the number of neurons (1-200):
 ```
 
@@ -140,7 +146,7 @@ Al final del entrenamiento se muestra la matriz de confusión y los valores de p
 
 Para clasificar una imagen, es necesario tener la red generada en el punto anterior.
 
-```(console)
+```console
 python3 test.py
 ```
 
@@ -151,7 +157,6 @@ Al hacer clic en el botón "Predict" el dibujo se guarda como `number.png` en la
 ## Dependencias
 
 - Python3
-- OpenCV
 - tkinter
 - PIL
 - Scikit

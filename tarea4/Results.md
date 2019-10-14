@@ -56,13 +56,13 @@ El comportamiento con respecto a la variación de costo es creciente hasta que s
 
 | Gamma (Poly) | Accuracy       | Elapsed Time |
 | ------------ | -------------- | ------------ |
-| 0.01\*       | 0.9760606061\* | 0:03:03\*    |
+| 0.05\*       | 0.9760606061\* | 0:03:03\*    |
 | 0.005        | 0.9612987013   | 0:07:47      |
 | 0.1          | 0.9760606061   | 0:03:05      |
 | 1            | 0.9760606061   | 0:03:07      |
 | 10           | 0.9760606061   | 0:03:02      |
 
-Table: Comparación de distintos coeficientes de kernel
+Table: Comparación de distintos coeficientes de kernel (gamma)
 
 Ocurre una conducta similar entre el cambio de gamma por valores mayores y la penalización. Para valores más cercanos a $0$ sucede un detrimento de la precisión; para valores mayores al de control, se choca contra un techo de desempeño.
 
