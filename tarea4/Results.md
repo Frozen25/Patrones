@@ -361,24 +361,18 @@ Modelo 15:
 - Primera capa: 60 neuronas, activación: ReLu
 - Segunda capa: 60 neuronas, activación: Sigmoide
 - Epocas: 10
-- Loss: 0.0938597477
-- Accuracy: 0.9706
 
 Modelo 11:
 
 - Primera capa: 60 neuronas, activación: ReLu
-- Segunda capa: 60 neuronas, activación: ReLue
+- Segunda capa: 60 neuronas, activación: ReLu
 - Epocas: 10
-- Loss: 0.1071203510
-- Accuracy: 0.9717
 
 Modelo 13:
 
 - Primera capa: 65 neuronas, activación: ReLu
-- Segunda capa: 65 neuronas, activación: ReLue
+- Segunda capa: 65 neuronas, activación: ReLu
 - Epocas: 10
-- Loss: 0.1133420477
-- Accuracy: 0.9698
 
 ### Comparación contra SVM
 
