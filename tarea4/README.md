@@ -83,7 +83,7 @@ Accuracy=X
 
 \*_Puede tomar tiempo en realizar todas las pruebas. X es cualquier valor._
 
-Cada SVM generado se guarda en la carpeta `resources`, ubicada dentro del mismo directorio.
+Cada SVM generado se guarda en la carpeta `resources`, ubicada dentro del mismo directorio. En caso de querer utilizar las redes pre-entrenadas, descomprima `svm_entrenadas.tar.xz` y mueva los archivos `.sav` a esta carpeta.
 
 El nombre de cada archivo se basa según las propiedades elegidas en la creación (kernel, grado polinomial, penalidad, gamma, tolerancia, máximas iteraciones).
 
