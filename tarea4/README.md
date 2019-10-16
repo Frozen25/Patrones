@@ -102,7 +102,7 @@ El boceto se guarda en `number.png` en la carpeta `resources`. Cada vez que se g
 
 ## Keras y Deep Learning
 
-Navegue a la carpeta de Keras. Esta se encuentra dentro de la carpeta `src`.
+Navegue a la carpeta de keras. Esta se encuentra dentro de la carpeta `src`.
 
 ```console
 cd src/keras
@@ -144,7 +144,10 @@ Al final del entrenamiento se muestra la matriz de confusión y los valores de p
 
 ### Clasificación de imagen arbitraria con keras
 
-Para clasificar una imagen, es necesario tener la red generada en el punto anterior.
+Para clasificar una imagen, es necesario tener la red generada en el punto anterior. 
+
+Para utilizar las redes entrenada se debe descomprimir el archivo "resources.tar.xz". Los modelos contenidos en el archivo comprimido se deben colocar en una carpeta bajo el nombre "resources". El programa intentará utilizar el modelo bajo el nombre "num_reader.model" por lo que se debe renombrar la carpeta del modelo a utilizar según corresponda. 
+
 
 ```console
 python3 test.py
