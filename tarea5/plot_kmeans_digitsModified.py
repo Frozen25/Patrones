@@ -38,6 +38,15 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 
+
+def plotcenters(centers):
+  X_reshaped = []
+  for i in range(len(centers)):
+    Xnew = (centers[i]).reshape(8,8)
+    X_reshaped.append(Xnew)
+    plt.figure(i+2)
+    plt.imshow(Xnew, interpolation='bilinear',cmap=plt.cm.binary)
+
 np.random.seed(42)
 
 digits = load_digits()
@@ -48,6 +57,7 @@ n_digits = len(np.unique(digits.target))
 labels = digits.target
 
 sample_size = 300
+
 
 print("n_digits: %d, \t n_samples %d, \t n_features %d"
       % (n_digits, n_samples, n_features))
@@ -89,17 +99,19 @@ print(82 * '_')
 # #############################################################################
 # Visualize the results on PCA-reduced data
 
-scal = StandardScaler()
-reduced_data = scal.fit_transform(data)
+#calculates the KMeans in 64D
+kmeans = KMeans(init='k-means++', n_clusters=n_digits, n_init=10)
+kmeans.fit(data)
+
+#saves and plots the 64D centroids 
+centroids = kmeans.cluster_centers_
+plotcenters(centroids)
 
 pca = PCA(n_components=2)
-pca.fit(reduced_data)
-reduced_data = pca.transform(reduced_data)
+kmeans.cluster_centers_ = pca.fit_transform(centroids) #proyects the 64D centroids in 2D
+reduced_data = pca.fit_transform(data) #transforms the data to 2D
+centroids = kmeans.cluster_centers_ #updates the centroids variable
 
-kmeans = KMeans(init='k-means++', n_clusters=n_digits, n_init=10)
-kmeans.fit(reduced_data)
-
-invertedX = scal.inverse_transform(pca.inverse_transform(kmeans.cluster_centers_))
 
 # Step size of the mesh. Decrease to increase the quality of the VQ.
 h = .02     # point in the mesh [x_min, x_max]x[y_min, y_max].
@@ -123,7 +135,7 @@ plt.imshow(Z, interpolation='nearest',
 
 plt.plot(reduced_data[:, 0], reduced_data[:, 1], 'k.', markersize=2)
 # Plot the centroids as a white X
-centroids = kmeans.cluster_centers_
+
 plt.scatter(centroids[:, 0], centroids[:, 1],
             marker='x', s=169, linewidths=3,
             color='w', zorder=10)
@@ -134,11 +146,6 @@ plt.ylim(y_min, y_max)
 plt.xticks(())
 plt.yticks(())
 
-X_reshaped = []
-for i in range(len(invertedX)):
-  Xnew = (invertedX[i]).reshape(8,8)
-  X_reshaped.append(Xnew)
-  plt.figure(i+2)
-  plt.imshow(Xnew, interpolation='bilinear',cmap=plt.cm.binary)
+
 
 plt.show()
