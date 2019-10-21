@@ -133,4 +133,12 @@ plt.xlim(x_min, x_max)
 plt.ylim(y_min, y_max)
 plt.xticks(())
 plt.yticks(())
+
+X_reshaped = []
+for i in range(len(invertedX)):
+  Xnew = (invertedX[i]).reshape(8,8)
+  X_reshaped.append(Xnew)
+  plt.figure(i+2)
+  plt.imshow(Xnew, interpolation='bilinear',cmap=plt.cm.binary)
+
 plt.show()
