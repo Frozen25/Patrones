@@ -23,61 +23,63 @@ Define un método de inicialización con los puntos de inicio, donde se empiezan
 
 ## Resultados obtenidos
 
-[comment]: <> (ext install bierner.markdown-image-size)
 
 ### Con K = 3
 
 #### PCA
 #### Valores
-![](Resources/k3-.png =400x)
+ ![image](Resources/k3-.png)
 
-![](Resources/k31.png =200x)
-![](Resources/k32.png =200x)
-![](Resources/k33.png =200x)
+
+
+
+![](Resources/k31.png )
+![](Resources/k32.png )
+![](Resources/k33.png )
 
 
 
 ### Con K = 10
 #### PCA
-![](Resources/k100-.png =400x)
+![](Resources/k100-.png )
 #### Valores
 
-![](Resources/k100.png =200x)
-![](Resources/k101.png =200x)
-![](Resources/k102.png =200x)
-![](Resources/k103.png =200x)
-![](Resources/k104.png =200x)
-![](Resources/k105.png =200x)
-![](Resources/k106.png =200x)
-![](Resources/k107.png =200x)
-![](Resources/k108.png =200x)
-![](Resources/k109.png =200x)
+![](Resources/k100.png )
+![](Resources/k101.png )
+![](Resources/k102.png )
+![](Resources/k103.png )
+![](Resources/k104.png )
+![](Resources/k105.png )
+![](Resources/k106.png )
+![](Resources/k107.png )
+![](Resources/k108.png )
+![](Resources/k109.png )
 
 
 ### Con K = 20
 
 #### PCA
-![](Resources/k20-.png =400x)
+![](Resources/k20-.png )
 #### Valores
 
-![](Resources/k2000.png =200x)
-![](Resources/k2010.png =200x)
-![](Resources/k2011.png =200x)
-![](Resources/k2012.png =200x)
-![](Resources/k2020.png =200x)
-![](Resources/k2030.png =200x)
-![](Resources/k2031.png =200x)
-![](Resources/k2040.png =200x)
-![](Resources/k2041.png =200x)
-![](Resources/k2050.png =200x)
-![](Resources/k2051.png =200x)
-![](Resources/k2060.png =200x)
-![](Resources/k2061.png =200x)
-![](Resources/k2070.png =200x)
-![](Resources/k2071.png =200x)
-![](Resources/k2080.png =200x)
-![](Resources/k2081.png =200x)
-![](Resources/k2090.png =200x)
-![](Resources/k2091.png =200x)
-![](Resources/k2092.png =200x)
+![](Resources/k2000.png )
+![](Resources/k2010.png )
+![](Resources/k2011.png )
+![](Resources/k2012.png )
+![](Resources/k2020.png )
+![](Resources/k2030.png )
+![](Resources/k2031.png )
+![](Resources/k2040.png )
+![](Resources/k2041.png )
+![](Resources/k2050.png )
+![](Resources/k2051.png )
+![](Resources/k2060.png )
+![](Resources/k2061.png )
+![](Resources/k2070.png )
+![](Resources/k2071.png )
+![](Resources/k2080.png )
+![](Resources/k2081.png )
+![](Resources/k2090.png )
+![](Resources/k2091.png )
+![](Resources/k2092.png )
 
