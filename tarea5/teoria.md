@@ -20,3 +20,64 @@ Define un método de inicialización con los puntos de inicio, donde se empiezan
 - "K-means ++": los centros iniciales, en donde se empieza a crear los clusters utilizando k-means, son escogidos de un breve análisis de los datos para seleccionar puntos que acelerenen la convergencia.
 - "Aleatorio": se eligen k muestras (filas) al azar de los datos para los centroides iniciales.
 - "ndarray": debe tener forma (n_clusters, n_features), en donde se dan los centros iniciales.
+
+## Resultados obtenidos
+
+[comment]: <> (ext install bierner.markdown-image-size)
+
+### Con K = 3
+
+#### PCA
+#### Valores
+![](Resources/k3-.png =400x)
+
+![](Resources/k31.png =200x)
+![](Resources/k32.png =200x)
+![](Resources/k33.png =200x)
+
+
+
+### Con K = 10
+#### PCA
+![](Resources/k100-.png =400x)
+#### Valores
+
+![](Resources/k100.png =200x)
+![](Resources/k101.png =200x)
+![](Resources/k102.png =200x)
+![](Resources/k103.png =200x)
+![](Resources/k104.png =200x)
+![](Resources/k105.png =200x)
+![](Resources/k106.png =200x)
+![](Resources/k107.png =200x)
+![](Resources/k108.png =200x)
+![](Resources/k109.png =200x)
+
+
+### Con K = 20
+
+#### PCA
+![](Resources/k20-.png =400x)
+#### Valores
+
+![](Resources/k2000.png =200x)
+![](Resources/k2010.png =200x)
+![](Resources/k2011.png =200x)
+![](Resources/k2012.png =200x)
+![](Resources/k2020.png =200x)
+![](Resources/k2030.png =200x)
+![](Resources/k2031.png =200x)
+![](Resources/k2040.png =200x)
+![](Resources/k2041.png =200x)
+![](Resources/k2050.png =200x)
+![](Resources/k2051.png =200x)
+![](Resources/k2060.png =200x)
+![](Resources/k2061.png =200x)
+![](Resources/k2070.png =200x)
+![](Resources/k2071.png =200x)
+![](Resources/k2080.png =200x)
+![](Resources/k2081.png =200x)
+![](Resources/k2090.png =200x)
+![](Resources/k2091.png =200x)
+![](Resources/k2092.png =200x)
+
